@@ -20,9 +20,9 @@ const Scoreboard=()=>{
     return(
         <div className="p-[20px]">
             <p className="mb-[30px] font-[medium]">Scoreboard</p>
-            {students && students.length > 0 ? students.map((item:any)=>{
+            {students && students.length > 0 ? students.map((index:number ,item:any)=>{
                 return(
-                    <div className="flex justify-between">
+                    <div key={index} className="flex justify-between">
                         <p className="font-[medium]">{item.username}</p>
                         <p className="font-[medium]">{item.score} คะแนน</p>
                     </div>
