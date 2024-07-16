@@ -12,7 +12,7 @@ import Content8 from "./Content8"
 import Content9 from "./Content9"
 import Content10 from "./Content10"
 import { useRouter } from "next/navigation"
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 
 
 const Question = () => {
@@ -32,16 +32,16 @@ const Question = () => {
         const usernameStorage = localStorage.getItem("username")
         const schoolStorage = localStorage.getItem("school")
 
-        if(usernameStorage && schoolStorage){
-        setUsername(usernameStorage)
-        setSchool(schoolStorage)
-        }else{
+        if (usernameStorage && schoolStorage) {
+            setUsername(usernameStorage)
+            setSchool(schoolStorage)
+        } else {
             navigate.push('/login')
         }
     }, [])
 
     return (
-        <motion.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 1}} className="p-[20px]">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="p-[20px]">
             <div className="flex justify-between">
                 <p className="font-[light]">คำถาม (Question)</p>
                 <div className="flex flex-col items-end">
@@ -50,10 +50,13 @@ const Question = () => {
                         <p className="font-[medium]">{username}</p>
                         <p className="font-[light]"> ({school})</p>
                     </div>
-                    <p onClick={()=>{
+                    <p onClick={() => {
                         localStorage.removeItem('username')
                         localStorage.removeItem('school')
                         localStorage.removeItem('current')
+                        for(let i=1;i<=10;i++){
+                            localStorage.removeItem(`ans${i}`)
+                        }
                         navigate.push("/login")
                     }} className="font-[medium] text-red-500">(เปลี่ยนชื่อใหม่)</p>
                 </div>
@@ -61,7 +64,7 @@ const Question = () => {
 
             {/* <Content/> */}
 
-            {current == 1 ? <Content1 current={current} setAnswer={setAnswer} setCurrent={setCurrent} /> : current == 2 ? <Content2 setCurrent={setCurrent} /> : current == 3 ? <Content3 setCurrent={setCurrent} /> : current == 4 ? <Content4 setCurrent={setCurrent} /> : current == 5 ? <Content5 setCurrent={setCurrent} /> : current == 6 ? <Content6 setCurrent={setCurrent} /> : current == 7 ? <Content7 setAnswer={setAnswer} setCurrent={setCurrent} /> : current == 8 ? <Content8 setCurrent={setCurrent} /> : current == 9 ? <Content9 setCurrent={setCurrent} /> : current == 10 ? <Content10 setCurrent={setCurrent} /> : null}
+            {current == 1 ? <Content1 current={current} setAnswer={setAnswer} setCurrent={setCurrent} /> : current == 2 ? <Content2 current={current} setCurrent={setCurrent} /> : current == 3 ? <Content3 setCurrent={setCurrent} /> : current == 4 ? <Content4 setCurrent={setCurrent} /> : current == 5 ? <Content5 setCurrent={setCurrent} /> : current == 6 ? <Content6 setCurrent={setCurrent} /> : current == 7 ? <Content7 setAnswer={setAnswer} setCurrent={setCurrent} /> : current == 8 ? <Content8 setCurrent={setCurrent} /> : current == 9 ? <Content9 setCurrent={setCurrent} /> : current == 10 ? <Content10 setCurrent={setCurrent} /> : null}
 
             <div className="fixed bottom-20 w-[calc(100%-40px)] flex justify-between">
                 <button className="font-[light]" onClick={() => {

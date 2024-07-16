@@ -27,11 +27,13 @@ const Content7 = ({setCurrent, setAnswer}:Props) => {
         <div className="h-[100vh]">
             <div>
                 <p className="font-[regular] text-[18px] mb-[10px] mt-[10px]">7. กังหันน้ำของคณะมนุษย์ศาสตร์มีกี่อัน ?</p>
-                <input autoFocus value={edit} onChange={(e) => {
+                <input type="number" autoFocus value={edit} onChange={(e) => {
                     setEdit(e.target.value)
                     localStorage.setItem("ans7", e.target.value)
                 }} className="w-full h-[40px] mt-[20px] indent-4 font-[medium] border-[1px] border-black outline-none rounded-[8px]" placeholder="อัน"></input>
             </div>
+
+            {edit ? <p className="font-[light] mt-[10px]">คำตอบของคุณ : {edit} อัน</p> : null}
         </div>
     )
 }

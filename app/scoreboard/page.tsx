@@ -10,6 +10,8 @@ const Scoreboard=()=>{
     const init=async()=>{
         const result = await ListStudents()
 
+        console.log(result)
+
         setStudents(result)
     }
 
@@ -19,11 +21,11 @@ const Scoreboard=()=>{
 
     return(
         <div className="p-[20px]">
-            <p className="mb-[30px] font-[medium]">Scoreboard</p>
-            {students && students.length > 0 ? students.map((index:number ,item:any)=>{
+            <p className="mb-[20px] font-[medium] text-[20px]">สรุปคะแนน (Summary Score)</p>
+            {students && students.length > 0 ? students.map((item:any ,index:any)=>{
                 return(
                     <div key={index} className="flex justify-between">
-                        <p className="font-[medium]">{item.username}</p>
+                        <p className="font-[light]">{item.username}</p>
                         <p className="font-[medium]">{item.score} คะแนน</p>
                     </div>
                 )

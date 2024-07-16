@@ -25,12 +25,14 @@ const Content9 = ({setCurrent}:Props) => {
     return (
         <div className="h-[100vh]">
             <div>
-                <p className="font-[regular] text-[18px] mb-[10px] mt-[10px]">9. ใต้ตึกHB6 มีศูนย์ภาษาของภาษาอะไรบ้าง ?</p>
+                <p className="font-[regular] text-[18px] mb-[10px] mt-[10px]">9. เก้าอี้นั่งของอ่างแก้วตรงข้ามลานควายยิ้มมีกี่ตัว ?</p>
                 <input autoFocus value={edit} onChange={(e) => {
                     setEdit(e.target.value)
                     localStorage.setItem("ans9", e.target.value)
-                }} className="w-full h-[40px] mt-[20px] indent-4 font-[medium] border-[1px] border-black outline-none rounded-[8px]" placeholder="ภาษา"></input>
+                }} className="w-full h-[40px] mt-[20px] indent-4 font-[medium] border-[1px] border-black outline-none rounded-[8px]" placeholder="ตัว"></input>
             </div>
+
+            {edit ? <p className="font-[light] mt-[10px]">คำตอบของคุณ : {edit} ตัว</p> : null}
         </div>
     )
 }

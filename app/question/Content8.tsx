@@ -31,6 +31,8 @@ const Content8 = ({setCurrent}:Props) => {
                     localStorage.setItem("ans8", e.target.value)
                 }} className="w-full h-[40px] mt-[20px] indent-4 font-[medium] border-[1px] border-black outline-none rounded-[8px]" placeholder="โดย"></input>
             </div>
+
+            {edit ? <p className="font-[light] mt-[10px]">คำตอบของคุณ : สนับสนุนโดย {edit}</p> : null}
         </div>
     )
 }

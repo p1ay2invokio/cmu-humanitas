@@ -53,18 +53,20 @@ const Content10 = ({ setCurrent }: Props) => {
     return (
         <div className="h-[100vh]">
             <div>
-                <p className="font-[regular] text-[18px] mb-[10px] mt-[10px]">10. อาคารเรือนเดิมตั้งอยู่ที่ไหน ?</p>
-                <input autoFocus value={edit} onChange={(e) => {
+                <p className="font-[regular] text-[18px] mb-[10px] mt-[10px]">10. บันไดขึ้นมาถึงห้องกิจกรรมมีกี่ขั้น ?</p>
+                <input type="number" autoFocus value={edit} onChange={(e) => {
                     setEdit(e.target.value)
                     localStorage.setItem("ans10", e.target.value)
-                }} className="w-full h-[40px] mt-[20px] indent-4 font-[medium] border-[1px] border-black outline-none rounded-[8px]" placeholder="หน้า"></input>
+                }} className="w-full h-[40px] mt-[20px] indent-4 font-[medium] border-[1px] border-black outline-none rounded-[8px]" placeholder="ขั้น"></input>
             </div>
 
-            <motion.div initial={{opacity: 0}} animate={ans1 && ans2 && ans3 && ans4 && ans5 && ans6 && ans7 && ans8 && ans9 && ans10 || edit ? {opacity: 1} : {opacity: 0}} className="bg-purple-400 w-[100px] h-[40px] fixed bottom-[120px] rounded-full right-5 flex justify-center items-center font-[medium] text-white">
+            <motion.div initial={{opacity: 0}} animate={ans1 && ans2 && ans3 && ans4 && ans5 && ans6 && ans7 && ans8 && ans9 && ans10 && edit ? {opacity: 1} : {opacity: 0}} className="bg-purple-400 w-[100px] h-[40px] fixed bottom-[120px] rounded-full right-5 flex justify-center items-center font-[medium] text-white">
                 <p onClick={() => {
                     navigate.push('/recheck')
                 }}>ตรวจคำตอบ</p>
             </motion.div>
+
+            {edit ? <p className="font-[light] mt-[10px]">คำตอบของคุณ : {edit} ขั้น</p> : null}
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import axios from "axios"
 import {URI} from '@/config'
 
-export const SubmitAnswer=(username: string | null, school: string | null, score: number):Promise<{duplicate: boolean, inserted: boolean}>=>{
+export const SubmitAnswer=(username: string | null, school: string | null, score: number):Promise<{duplicate: boolean, inserted: boolean, server_close: boolean}>=>{
     return new Promise((resolve)=>{
         axios.post(`${URI}/api/submit`,{
             username: username,
@@ -9,6 +9,8 @@ export const SubmitAnswer=(username: string | null, school: string | null, score
             score: score
         }).then((res)=>{
             resolve(res.data)  
+        }).catch((err)=>{
+            resolve({duplicate: false, inserted: false, server_close: true})
         })
     })
 }

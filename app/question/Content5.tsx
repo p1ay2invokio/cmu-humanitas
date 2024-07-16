@@ -31,6 +31,8 @@ const Content5 = ({setCurrent}:Props) => {
                     localStorage.setItem("ans5", e.target.value)
                 }} className="w-full h-[40px] mt-[20px] indent-4 font-[medium] border-[1px] border-black outline-none rounded-[8px]" placeholder="ชื่อ"></input>
             </div>
+
+            {edit ? <p className="font-[light] mt-[10px]">คำตอบของคุณ : {edit}</p> : null}
         </div>
     )
 }

@@ -41,7 +41,17 @@ const Content1 = ({ current, setCurrent, setAnswer }: Props) => {
                 }} className="w-full h-[40px] mt-[20px] indent-4 font-[medium] border-[1px] border-black outline-none rounded-[8px]" placeholder="ถืออะไร"></input>
             </div>
 
-            {/* <p className="font-[light]">คำตอบของฉัน : {where}</p> */}
+            {edit ? <p className="font-[light] mt-[10px]">คำตอบของคุณ : ถือ{edit}</p> : null}
+
+            {/* <motion.div initial={{opacity: 0}} animate={edit ? {opacity: 1} : {opacity: 0}}>
+                {edit ? <p className="font-[light] mt-[10px]">คำตอบของคุณ : ถือ{edit}</p> : null}
+                {edit ? <div onClick={() => {
+                    localStorage.setItem('current', (current + 1).toString())
+                    setCurrent(current + 1)
+                }} className="w-[80px] h-[35px] bg-purple-400 flex justify-center items-center rounded-[12px]">
+                    <p className="text-white font-[medium] text-[16px]">ต่อไป</p>
+                </div> : null}
+            </motion.div> */}
         </div>
     )
 }
