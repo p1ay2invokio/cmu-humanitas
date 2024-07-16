@@ -1,1 +1,1 @@
-export const URI = 'http://api.playtwo.online'
+export const URI = 'https://api.playtwo.online'
